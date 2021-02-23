@@ -5,8 +5,11 @@ defmodule BackendWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", BackendWeb do
+  scope "/api" do
     pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: BackendWeb.Schema
+    forward "/", Absinthe.Plug, schema: BackendWeb.Schema
   end
 
   # Enables LiveDashboard only for development
