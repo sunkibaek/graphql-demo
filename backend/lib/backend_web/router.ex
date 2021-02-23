@@ -2,6 +2,7 @@ defmodule BackendWeb.Router do
   use BackendWeb, :router
 
   pipeline :api do
+    plug Corsica, origins: "*", allow_headers: ["content-type"]
     plug :accepts, ["json"]
   end
 
