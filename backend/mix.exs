@@ -20,7 +20,7 @@ defmodule Backend.MixProject do
   def application do
     [
       mod: {Backend.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :absinthe_plug]
     ]
   end
 
@@ -42,7 +42,9 @@ defmodule Backend.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:absinthe, "~> 1.6"},
+      {:absinthe_plug, "~> 1.5"}
     ]
   end
 
