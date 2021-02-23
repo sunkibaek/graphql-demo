@@ -1,17 +1,7 @@
-import { useQuery, gql } from "@apollo/client";
-
-const EVENTS = gql`
-  query Events {
-    events {
-      message
-    }
-  }
-`;
+import { useEventsQuery } from "./generated-frontend";
 
 const Messages = () => {
-  const { loading, error, data } = useQuery<{
-    events: Array<{ message: string }>;
-  }>(EVENTS);
+  const { loading, error, data } = useEventsQuery();
 
   if (loading) {
     return <p>Loading...</p>;
@@ -27,7 +17,7 @@ const Messages = () => {
 
   return (
     <ul>
-      {data.events.map((event: any) => (
+      {(data.events || []).map((event: any) => (
         <li key={event.message}>Message: {event.message}</li>
       ))}
     </ul>
