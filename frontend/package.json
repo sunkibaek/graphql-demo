@@ -52,6 +52,7 @@
     "@graphql-codegen/typescript": "1.21.0",
     "@graphql-codegen/typescript-operations": "^1.17.14",
     "@graphql-codegen/typescript-react-apollo": "2.2.1",
+    "@playlyfe/gql": "^2.6.2",
     "graphql-cli": "^4.1.0"
   }
 }
